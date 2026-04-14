@@ -1,0 +1,62 @@
+{% extends 'base.html'%}
+
+{% block title %}Services
+{% endblock title %}
+
+{% block body %}
+
+<div class="container text-center my-5">
+  <h1 style="color: black;">Our Services</h1>
+  <p>We provide high quality ice cream and delivery services</p>
+</div>
+
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-3">
+      <div class="card shadow-sm">
+        <img src= "https://images.unsplash.com/photo-1563805042-7684c019e1cb" class="card-img-top" style="height: 200px; object-fit: cover;">
+        <div class="card-body">
+          <h5>Ice Cream Delivery</h5>
+          <p>Fast and fresh delivery at your doorstep</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3 mp-3">
+      <div class="card shadow-sm">
+        <img src="https://images.unsplash.com/photo-1557142046-c704a3adf364?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Njd8fGljZSUyMGNyZWFtfGVufDB8fDB8fHww" class="card-img-top" style="height: 200px; object-fit: cover;">
+        <div class="card-body">
+          <h5>Custom Flavors</h5>
+          <p>Create your own ice cream flavor</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card shadow-sm">
+        <img src="https://images.unsplash.com/photo-1594488506255-a8bbfdeedbaf?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NzZ8fGljZSUyMGNyZWFtfGVufDB8fDB8fHww"class="card-img-top" style="height: 220px; object-fit: cover;">
+        <div class="card-body">
+          <h5>Party Orders</h5>
+          <p>Bulk orders for birthdays & events</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="container my-5 text-center">
+  <h2>Why Choose Us?</h2>
+  <p>✔ Fresh Ingredients</p>
+  <p>✔ Fast Delivery</p>
+  <p>✔ Affordable Price</p>
+</div>
+
+<div class="text-center my-5">
+  <a href="/contact/" class="btn btn-primary">Contact Us</a>
+</div>
+
+
+
+{% endblock body %}
