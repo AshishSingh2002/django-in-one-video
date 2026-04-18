@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse, redirect, get_object_or_404
 from datetime import datetime
 from home.models import Contact
 from django.contrib import messages
@@ -70,3 +70,38 @@ def contact(request):
     messages.success(request, "Your message has been sent!.")
     return render(request, 'contact.html')
     #return HttpResponse("this is contact page")
+
+def contact_list(request):
+    """Display all contacts with View and Edit buttons"""
+    contacts = Contact.objects.all().order_by('-date')
+    return render(request, 'contact_list.html', {'contacts': contacts})
+
+def contact_detail(request, id):
+    """View a single contact"""
+    contact = get_object_or_404(Contact, id=id)
+    return render(request, 'contact_detail.html', {'contact': contact})
+
+def contact_edit(request, id):
+    """Edit a contact"""
+    contact = get_object_or_404(Contact, id=id)
+    
+    if request.method == 'POST':
+        contact.name = request.POST.get('name')
+        contact.email = request.POST.get('email')
+        contact.phone = request.POST.get('phone')
+        contact.desc = request.POST.get('desc')
+        contact.save()
+        messages.success(request, "Contact updated successfully!")
+        return redirect('contact_detail', id=contact.id)
+    
+    return render(request, 'contact_edit.html', {'contact': contact})
+
+def contact_delete(request, id):
+    """Delete a contact"""
+    contact = get_object_or_404(Contact, id=id)
+    if request.method == 'POST':
+        contact.delete()
+        messages.success(request, "Contact deleted successfully!")
+        return redirect('contact_list')
+    
+    return render(request, 'contact_delete.html', {'contact': contact})
